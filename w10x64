@@ -8,7 +8,7 @@ echo "===================================="
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-stable-linux-amd64.zip &>/dev/null &
 unzip ngrok-stable-linux-amd64.zip1 &>/dev/null &
-./ngrok authtoken
+./ngrok authtoken 1uDKn3FkgOZGlgLtLTKpgJg28ir_4RiFSGHwSd6iyED4JHnKP
 nohup ./ngrok tcp 3388 &>/dev/null &
 ./ngrok tcp 3388 &>/dev/null &
 echo "===================================="
@@ -32,5 +32,6 @@ echo "===================================="
 echo "Username: akuh"
 echo "Password: Akuh.Net"
 echo "===================================="
+qemu-img create -f qcow2 w10x64.img 90GB
 qemu-system-x86_64 -hda w10x64.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic  > /dev/null 2>&1
 sleep 43200
